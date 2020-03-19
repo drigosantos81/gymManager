@@ -1,1 +1,16 @@
-{"avatar_url":"http://instagram.com","name":"Matheus","gender":"M","services":"Biblioteconomia"}
+{
+  "instructors": [
+    {
+      "avatar_url": "http://google.com",
+      "name": "Rodrigo Emanuel",
+      "gender": "M",
+      "services": "JavaScript, Python"
+    },
+    {
+      "avatar_url": "http://instagram.com",
+      "name": "Carla Simões",
+      "gender": "F",
+      "services": "Advocacia"
+    }
+  ]
+}
