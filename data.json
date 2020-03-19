@@ -1,16 +1,25 @@
 {
   "instructors": [
     {
-      "avatar_url": "http://google.com",
+      "avatar_url": "http://twitter.com",
+      "name": "Marcus Matheus",
+      "gender": "M",
+      "services": "Biblioteconomia",
+      "created_at": 1584578762247
+    },
+    {
+      "avatar_url": "http://twitter.com",
       "name": "Rodrigo Emanuel",
       "gender": "M",
-      "services": "JavaScript, Python"
+      "services": "JavaScript, Python",
+      "created_at": 1584578848032
     },
     {
       "avatar_url": "http://instagram.com",
       "name": "Carla Simões",
       "gender": "F",
-      "services": "Advocacia"
+      "services": "Advocacia",
+      "created_at": 1584578878922
     }
   ]
 }
