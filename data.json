@@ -6,8 +6,17 @@
       "name": "Rodrigo Emanuel",
       "birth": null,
       "gender": "M",
-      "services": "JavaScript, Python, SQL",
+      "services": "Musculação, Crossfit, Corrida",
       "created_at": 1584712845348
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://instagram.com",
+      "name": "Carla Simões",
+      "birth": null,
+      "gender": "F",
+      "services": "Aeróbica",
+      "created_at": 1584715313388
     }
   ]
 }

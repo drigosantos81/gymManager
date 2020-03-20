@@ -19,7 +19,5 @@ function age(timestamp) {
         age = age - 1;
     }
 
-
-
     return age;
 }
