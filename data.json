@@ -2,12 +2,12 @@
   "instructors": [
     {
       "id": 1,
-      "avatar_url": "http://twitter.com",
+      "avatar_url": "https://source.unsplash.com/collection/8353395/500x500",
       "name": "Rodrigo Emanuel",
       "birth": null,
       "gender": "M",
-      "services": "Musculação, Crossfit, Corrida",
-      "created_at": 1584712845348
+      "services": "JavaScript, Python, SQL",
+      "created_at": 1584728097459
     },
     {
       "id": 2,
@@ -15,8 +15,8 @@
       "name": "Carla Simões",
       "birth": null,
       "gender": "F",
-      "services": "Aeróbica",
-      "created_at": 1584715313388
+      "services": "Advocacia",
+      "created_at": 1584730671597
     }
   ]
 }
