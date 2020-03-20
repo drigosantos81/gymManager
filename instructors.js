@@ -50,7 +50,14 @@ exports.show = function(req, res) {
 
     if (!foundInstructor) return res.send("Instrutor não encontrado!");
 
-    return res.render("instructors/show", { instructor: foundInstructor })
+    const instructor = {
+        ...foundInstructor,
+        age: "",
+        services: foundInstructor.services.split(","),
+        created_at: "",
+    }
+
+    return res.render("instructors/show", { instructor })
 }
 // Update ()
 
