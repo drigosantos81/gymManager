@@ -35,6 +35,23 @@ exports.post = function(req, res) {
         return res.redirect("/instructors");
     })
 }
+
+// Mostrar
+exports.show = function(req, res) {
+    // req.query.id => Direto na barra de endereço usando '?id=1'
+    // req.body => Pega do formulário (corpo da requisição) através do POST
+    // req.params.id => 
+
+    const { id } = req.params;
+
+    const foundInstructor = data.instructors.find(function(instructor) {
+        return instructor.id == id;
+    })
+
+    if (!foundInstructor) return res.send("Instrutor não encontrado!");
+
+    return res.send(foundInstructor)
+}
 // Update ()
 
 // Delete ()
