@@ -60,6 +60,17 @@ exports.show = function(req, res) {
 
     return res.render("instructors/show", { instructor })
 }
-// Update ()
+// Update/Edit (PUSH)
+exports.edit = function(req, res) {
+    const { id } = req.params;
+
+    const foundInstructor = data.instructors.find(function(instructor) {
+        return instructor.id == id;
+    })
+
+    if (!foundInstructor) return res.send("Instrutor não encontrado!");
+        
+    return res.render('instructors/edit', { instructor: foundInstructor });
+}
 
 // Delete ()
