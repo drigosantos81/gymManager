@@ -52,7 +52,7 @@ exports.show = function(req, res) {
 
     const instructor = {
         ...foundInstructor,
-        age: "",
+        age: age(foundInstructor.birth),
         services: foundInstructor.services.split(","),
         created_at: "",
     }

@@ -7,25 +7,7 @@
       "birth": null,
       "gender": "M",
       "services": "JavaScript, Python, SQL",
-      "created_at": 1584708377956
-    },
-    {
-      "id": 2,
-      "avatar_url": "http://instagram.com",
-      "name": "Carla Simões",
-      "birth": null,
-      "gender": "F",
-      "services": "Advocacia",
-      "created_at": 1584708407202
-    },
-    {
-      "id": 3,
-      "avatar_url": "http://google.com",
-      "name": "Marcus Matheus",
-      "birth": null,
-      "gender": "M",
-      "services": "Biblioteconomia",
-      "created_at": 1584708426724
+      "created_at": 1584712845348
     }
   ]
 }
