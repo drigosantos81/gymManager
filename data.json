@@ -35,15 +35,6 @@
       "gender": "F",
       "services": "Aeróbica",
       "created_at": 1585521672517
-    },
-    {
-      "id": 5,
-      "avatar_url": "http://facebook.com",
-      "name": "Mark Zuck",
-      "birth": null,
-      "gender": "M",
-      "services": "CEO",
-      "created_at": 1585687468740
     }
   ]
 }
