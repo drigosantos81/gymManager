@@ -60,6 +60,7 @@ exports.show = function(req, res) {
 
     return res.render("instructors/show", { instructor })
 }
+
 // Atualizar/Editar - Página de edição do fomrulário.
 exports.edit = function(req, res) {
     const { id } = req.params;
