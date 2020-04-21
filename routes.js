@@ -1,31 +1,24 @@
 const express = require('express');
 const routes = express.Router();
-const instructors = require('./instructors');
+const instructors = require('./controllers/instructors');
+const members = require('./controllers/members');
 
 routes.get('/', function(req, res) {
-    return res.redirect("instructors");
+    return res.redirect("/instructors");
 })
 
-routes.get('/instructors', function(req, res) {
-    return res.render("instructors/index");
-})
+// INSTRUCTORS
 
-routes.get('/instructors/create', function(req, res) {
-    return res.render('instructors/create');
-})
-
-routes.get('/instructors/:id', instructors.show);
-
-routes.get('/instructors/:id/edit', instructors.edit);
-
+routes.get('/instructors', instructors.index);
+routes.get('/instructors/create', instructors.create);
 routes.post("/instructors", instructors.post);
-// routes.post("/instructors", function(rea, res) {
-//     return res.send('Recebido');
-// })
-
+routes.get('/instructors/:id', instructors.show);
+routes.get('/instructors/:id/edit', instructors.edit);
 routes.put("/instructors", instructors.put);
-
 routes.delete("/instructors", instructors.delete);
+
+
+// MEMBERS
 
 routes.get('/members', function(req, res) {
     return res.send("members");

@@ -1,0 +1,100 @@
+<div class="item">
+    <div>Avatar URL</div>
+        <div>
+            <input type="url" name="avatar_url" placeholder="http://..." value="{{ aluno.avatar_url }}">
+        </div>        
+</div>
+
+<div class="item">
+    <div>Nome</div>
+    <div>
+        <input type="text" name="name" placeholder="Nome do aluno..." value="{{ aluno.name }}">
+    </div>        
+</div>
+
+<div class="item">
+    <div>E-mail</div>
+    <div>
+        <input type="email" name="email" placeholder="E-mail..." value="{{ aluno.email }}">
+    </div>        
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <div>
+        <input type="date" name="birth" value="{{ aluno.birth }}">
+    </div>        
+</div>
+
+<div class="item">
+    <div>Ano Escolar</div>
+    <div>
+        <select name="anoescolar" id="">
+            <option value="5º Funamental">5º Funamental</option>
+            <option value="6º Funamental">6º Funamental</option>
+            <option value="7º Funamental">7º Funamental</option>
+            <option value="8º Funamental">8º Funamental</option>
+            <option value="9º Funamental">9º Funamental</option>
+            <option value="1º Ensino Médio">1º Ensino Médio</option>
+            <option value="2º Ensino Médio">2º Ensino Médio</option>
+            <option value="3º Ensino Médio">3º Ensino Médio</select>
+     </div>        
+</div>
+
+<div class="item">
+    <div>Carga Horária</div>
+    <div>
+        <input type="number" name="ch" placeholder="Informe a Carga Horária semanal..." value="{{ aluno.ch }}">
+    </div>        
+</div>
+
+<button type="submit">Salvar</button>
+
+{# <div class="item">
+    <div>Tipo da Aula</div>
+    <div>
+        <span>
+            <input 
+                type="radio" 
+                name="aula" 
+                value="P" 
+                    {% if professor.aula == "P" %}
+                        checked
+                    {% endif %}>Presencial
+        </span>
+        <span>
+            <input 
+                type="radio" 
+                name="aula" 
+                value="E"
+                    {% if professor.aula == "E" %}
+                        checked
+                    {% endif %}>EAD
+        </span>
+    </div>        
+</div> #}
+
+{# <option value="f5"
+            {% if aluno.anoescolar == "f5" %} seleted {% endif %}
+                >5º Funamental</option>
+            <option value="f6"
+            {% if aluno.anoescolar == "f6" %} seleted {% endif %}
+                >6º Funamental</option>
+            <option value="f7"
+            {% if aluno.anoescolar == "f7" %} seleted {% endif %}
+                >7º Funamental</option>
+            <option value="f8"
+            {% if aluno.anoescolar == "f8" %} seleted {% endif %}
+                >8º Funamental</option>
+            <option value="f8"
+            {% if aluno.anoescolar == "f9" %} seleted {% endif %}
+                >9º Funamental</option>
+            <option value="m1"
+            {% if aluno.anoescolar == "m1" %} seleted {% endif %}
+                >1º Ensino Médio</option>
+            <option value="m2"
+            {% if aluno.anoescolar == "m2" %} seleted {% endif %}
+                >2º Ensino Médio</option>
+            <option value="m3"
+            {% if aluno.anoescolar == "m3" %} seleted {% endif %}
+                >3º Ensino Médio</option> #}
