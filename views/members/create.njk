@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="card" method="POST" action="/alunos">
+<form class="card" method="POST" action="/members">
     
     <section 
         class="avatar" 
@@ -10,9 +10,9 @@
     </section>
     
     <section class="details">
-        <h3>Novo Aluno</h3>
+        <h3>Novo Membro</h3>
 
-        {% include 'alunos/fields.njk' %}
+        {% include 'members/fields.njk' %}
 
     </section>
 </form>

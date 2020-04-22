@@ -1,28 +1,28 @@
 <div class="item">
     <div>Avatar URL</div>
         <div>
-            <input type="url" name="avatar_url" placeholder="http://..." value="{{ aluno.avatar_url }}">
+            <input type="url" name="avatar_url" placeholder="http://..." value="{{ member.avatar_url }}">
         </div>        
 </div>
 
 <div class="item">
     <div>Nome</div>
     <div>
-        <input type="text" name="name" placeholder="Nome do aluno..." value="{{ aluno.name }}">
+        <input type="text" name="name" placeholder="Nome do member..." value="{{ member.name }}">
     </div>        
 </div>
 
 <div class="item">
     <div>E-mail</div>
     <div>
-        <input type="email" name="email" placeholder="E-mail..." value="{{ aluno.email }}">
+        <input type="email" name="email" placeholder="E-mail..." value="{{ member.email }}">
     </div>        
 </div>
 
 <div class="item">
     <div>Data de nascimento</div>
     <div>
-        <input type="date" name="birth" value="{{ aluno.birth }}">
+        <input type="date" name="birth" value="{{ member.birth }}">
     </div>        
 </div>
 
@@ -44,7 +44,7 @@
 <div class="item">
     <div>Carga Horária</div>
     <div>
-        <input type="number" name="ch" placeholder="Informe a Carga Horária semanal..." value="{{ aluno.ch }}">
+        <input type="number" name="ch" placeholder="Informe a Carga Horária semanal..." value="{{ member.ch }}">
     </div>        
 </div>
 
@@ -75,26 +75,26 @@
 </div> #}
 
 {# <option value="f5"
-            {% if aluno.anoescolar == "f5" %} seleted {% endif %}
+            {% if member.anoescolar == "f5" %} seleted {% endif %}
                 >5º Funamental</option>
             <option value="f6"
-            {% if aluno.anoescolar == "f6" %} seleted {% endif %}
+            {% if member.anoescolar == "f6" %} seleted {% endif %}
                 >6º Funamental</option>
             <option value="f7"
-            {% if aluno.anoescolar == "f7" %} seleted {% endif %}
+            {% if member.anoescolar == "f7" %} seleted {% endif %}
                 >7º Funamental</option>
             <option value="f8"
-            {% if aluno.anoescolar == "f8" %} seleted {% endif %}
+            {% if member.anoescolar == "f8" %} seleted {% endif %}
                 >8º Funamental</option>
             <option value="f8"
-            {% if aluno.anoescolar == "f9" %} seleted {% endif %}
+            {% if member.anoescolar == "f9" %} seleted {% endif %}
                 >9º Funamental</option>
             <option value="m1"
-            {% if aluno.anoescolar == "m1" %} seleted {% endif %}
+            {% if member.anoescolar == "m1" %} seleted {% endif %}
                 >1º Ensino Médio</option>
             <option value="m2"
-            {% if aluno.anoescolar == "m2" %} seleted {% endif %}
+            {% if member.anoescolar == "m2" %} seleted {% endif %}
                 >2º Ensino Médio</option>
             <option value="m3"
-            {% if aluno.anoescolar == "m3" %} seleted {% endif %}
+            {% if member.anoescolar == "m3" %} seleted {% endif %}
                 >3º Ensino Médio</option> #}

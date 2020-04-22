@@ -4,11 +4,12 @@ const { age, date, birthDay } = require('../utils');
 
 // index
 exports.index = function(req, res) {
-    return res.render("alunos/index", { alunos: data.alunos });
+    return res.render("members/index", { members: data.members });
 };
 
+// Exibe a página create
 exports.create = function(req, res) {
-    return res.render("alunos/create");
+    return res.render("members/create");
 };
 
 // create - POST
@@ -26,9 +27,9 @@ exports.post = function(req, res) {
 
     birth = Date.parse(birth);
     const created_at = Date.now();
-    const id = Number(data.alunos.length + 1);
+    const id = Number(data.members.length + 1);
 
-    data.alunos.push({
+    data.members.push({
         id, 
         avatar_url, 
         name, 
@@ -42,7 +43,7 @@ exports.post = function(req, res) {
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) return res.send("Erro ao salvar o arquivo.");
 
-        return res.redirect("/alunos");
+        return res.redirect("/members");
     });
 };
 
@@ -50,7 +51,7 @@ exports.post = function(req, res) {
 exports.show = function(req, res) {
     const { id } = req.params;
 
-    const foundAluno = data.alunos.find(function(aluno) {
+    const foundAluno = data.members.find(function(aluno) {
         return id == aluno.id;
     });
     
@@ -65,14 +66,14 @@ exports.show = function(req, res) {
         created_at: new Intl.DateTimeFormat("pt-BR").format(foundAluno.created_at),
     }
 
-    return res.render("alunos/show", { aluno });
+    return res.render("members/show", { aluno });
 };
 
 // edit
 exports.edit = function(req, res) {
     const { id } = req.params;
 
-    const foundAluno = data.alunos.find(function(aluno) {
+    const foundAluno = data.members.find(function(aluno) {
         return id == aluno.id;
     });
     
@@ -85,7 +86,7 @@ exports.edit = function(req, res) {
         birth: date(foundAluno.birth),
     }
     
-    return res.render("alunos/edit", { aluno });
+    return res.render("members/edit", { aluno });
 }
 
 // update - PUT
@@ -93,7 +94,7 @@ exports.put = function(req, res) {
     const { id } = req.body;
     let index = 0;
 
-    const foundAluno = data.alunos.find(function(aluno, foundIndex) {
+    const foundAluno = data.members.find(function(aluno, foundIndex) {
         if (id == aluno.id) {
             index = foundIndex;
             return true;
@@ -111,13 +112,13 @@ exports.put = function(req, res) {
         id: Number(req.body.id),
     }
 
-    data.alunos[index] = aluno;
+    data.members[index] = aluno;
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) {
             return res.send("Erro ao salvar o arquivo.");
         }
-        return res.redirect(`/alunos/${id}`);
+        return res.redirect(`/members/${id}`);
     })
 
 };
@@ -126,11 +127,11 @@ exports.put = function(req, res) {
 exports.delete = function(req, res) {
     const { id } = req.body;
 
-    const filteredAlunos = data.alunos.filter(function(aluno) {
+    const filteredMembers = data.members.filter(function(aluno) {
         return aluno.id != id;
     });
 
-    data.alunos = filteredAlunos;
+    data.members = filteredMembers;
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) {
@@ -138,5 +139,5 @@ exports.delete = function(req, res) {
         };
     });
 
-    return res.redirect("/alunos");
+    return res.redirect("/members");
 };

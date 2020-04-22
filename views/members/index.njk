@@ -3,13 +3,13 @@
 {% block content %}
 
 <div class="card table-container">
-    <a href="/alunos/create">Novo</a>
+    <a href="/members/create">Novo</a>
     
     <table width="100%">
         <thead>
 
             <tr>
-                <th>Aluno</th>
+                <th>member</th>
                 <th>Ano Escolar</th>
                 <th>Carga Horária</th>
                 <th>Ação</th>
@@ -17,14 +17,14 @@
 
             <tbody>
 
-            {% for aluno in alunos %}
+            {% for member in members %}
                 <tr>
                     <td>
-                        <span style="background-image: url({{aluno.avatar_url}})"></span>
-                        {{aluno.name}}</td>
-                    <td>{{aluno.anoescolar}}</td>
-                    <td>{{aluno.ch}} h</td>
-                    <td><a href="/alunos/{{aluno.id}}">Ver</a></td>
+                        <span style="background-image: url({{member.avatar_url}})"></span>
+                        {{member.name}}</td>
+                    <td>{{member.anoescolar}}</td>
+                    <td>{{member.ch}} h</td>
+                    <td><a href="/members/{{member.id}}">Ver</a></td>
                 </tr>
             {% endfor %}
             </tbody>

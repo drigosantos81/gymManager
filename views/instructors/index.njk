@@ -7,7 +7,6 @@
     
     <table width="100%">
         <thead>
-
             <tr>
                 <th>Instrutor</th>
                 <th>Acompanhamento</th>
@@ -15,17 +14,15 @@
             </tr>
 
             <tbody>
-
-            {% for instructor in instructors %}
-                <tr>
-                    <td>
-                        <span style="background-image: url({{instructor.avatar_url}})"></span>
-                        {{instructor.name}}</td>
-                    <td>{{instructor.anoescolar}}</td>
-                    <td>{{instructor.ch}} h</td>
-                    <td><a href="/instructors/{{instructor.id}}">Ver</a></td>
-                </tr>
-            {% endfor %}
+                {% for instructor in instructors %}
+                    <tr>
+                        <td>
+                            <span style="background-image: url({{instructor.avatar_url}})"></span>{{instructor.name}}
+                        </td>
+                        <td>{{instructor.services}}</td>
+                        <td><a href="/instructors/{{instructor.id}}">Ver</a></td>
+                    </tr>
+                {% endfor %}
             </tbody>
         
         </thead>
