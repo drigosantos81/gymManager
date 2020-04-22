@@ -51,42 +51,42 @@ exports.post = function(req, res) {
 exports.show = function(req, res) {
     const { id } = req.params;
 
-    const foundAluno = data.members.find(function(aluno) {
-        return id == aluno.id;
+    const foundMember = data.members.find(function(member) {
+        return id == member.id;
     });
     
-    if (!foundAluno){
-        return res.send("Aluno não encontrado.");
+    if (!foundMember){
+        return res.send("Member não encontrado.");
     }
 
-    const aluno = {
-        ...foundAluno,
-        age: age(foundAluno.birth),
-        birthDay: birthDay(foundAluno.birth).iso,
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundAluno.created_at),
+    const member = {
+        ...foundMember,
+        age: age(foundMember.birth),
+        // birthDay: birthDay(foundMember.birth).iso,
+        created_at: new Intl.DateTimeFormat("pt-BR").format(foundMember.created_at),
     }
 
-    return res.render("members/show", { aluno });
+    return res.render("members/show", { member });
 };
 
 // edit
 exports.edit = function(req, res) {
     const { id } = req.params;
 
-    const foundAluno = data.members.find(function(aluno) {
-        return id == aluno.id;
+    const foundMember = data.members.find(function(member) {
+        return id == member.id;
     });
     
-    if (!foundAluno){
-        return res.send("Aluno não encontrado.");
+    if (!foundMember){
+        return res.send("Member não encontrado.");
     }
 
-    const aluno = {
-        ...foundAluno,
-        birth: date(foundAluno.birth),
+    const member = {
+        ...foundMember,
+        birth: date(foundMember.birth),
     }
     
-    return res.render("members/edit", { aluno });
+    return res.render("members/edit", { member });
 }
 
 // update - PUT
@@ -94,25 +94,25 @@ exports.put = function(req, res) {
     const { id } = req.body;
     let index = 0;
 
-    const foundAluno = data.members.find(function(aluno, foundIndex) {
-        if (id == aluno.id) {
+    const foundMember = data.members.find(function(member, foundIndex) {
+        if (id == member.id) {
             index = foundIndex;
             return true;
         };
     });
     
-    if (!foundAluno){
-        return res.send("Aluno não encontrado.");
+    if (!foundMember){
+        return res.send("Member não encontrado.");
     }
 
-    const aluno = {
-        ...foundAluno,
+    const member = {
+        ...foundMember,
         ...req.body,
         birth: Date.parse(req.body.birth),
         id: Number(req.body.id),
     }
 
-    data.members[index] = aluno;
+    data.members[index] = member;
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) {
@@ -127,8 +127,8 @@ exports.put = function(req, res) {
 exports.delete = function(req, res) {
     const { id } = req.body;
 
-    const filteredMembers = data.members.filter(function(aluno) {
-        return aluno.id != id;
+    const filteredMembers = data.members.filter(function(member) {
+        return member.id != id;
     });
 
     data.members = filteredMembers;

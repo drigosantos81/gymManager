@@ -6,22 +6,22 @@
 
     <section 
         class="avatar" 
-        style="background: url({{aluno.avatar_url}}) no-repeat center center / cover">
+        style="background: url({{member.avatar_url}}) no-repeat center center / cover">
     </section>
 
     <section class="details">
-        <form method="POST" action="/alunos?_method=PUT">
+        <form method="POST" action="/members?_method=PUT">
 
-                <h3>Editar Aluno</h3>
+                <h3>Editar Membro</h3>
 
-                {% include 'alunos/fields.njk' %}
+                {% include 'members/fields.njk' %}
 
-                <input type="hidden" name="id" value="{{ aluno.id }}">
+                <input type="hidden" name="id" value="{{ member.id }}">
 
         </form>
 
-            <form id="form-delete" action="/alunos?_method=DELETE" method="post">
-                <input type="hidden" name="id" value="{{ aluno.id }}">
+            <form id="form-delete" action="/members?_method=DELETE" method="post">
+                <input type="hidden" name="id" value="{{ member.id }}">
                 <button type="submit">Deletar</button>
             </form>
 
@@ -41,5 +41,5 @@
 
 {% endblock %}
 
-{# confirm(`Deseja deletar o usuário ${ aluno.name }?`); #}
+{# confirm(`Deseja deletar o usuário ${ member.name }?`); #}
 {# const confirmation = confirm("Deseja deletar este usuário?"); #}

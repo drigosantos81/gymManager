@@ -12,110 +12,118 @@ exports.create = function(req, res) {
     return res.render("instructors/create");
 };
 
-// Criar - (Execução do comando POST)
+// create - POST
 exports.post = function(req, res) {
-
+    
     const keys = Object.keys(req.body);
 
-    for(key of keys) {
+    for (key of keys) {
         if (req.body[key] == "") {
-            return res.send('Por favor, preencha todos os campos');
-        }        
+            return res.send("Por favor, preencha todos os campos.");
+        }
     }
 
-    let {avatar_url, name, birth, gender, services } = req.body;
+    let { avatar_url, name, birth, email, anoescolar, ch } = req.body;
 
     birth = Date.parse(birth);
     const created_at = Date.now();
     const id = Number(data.instructors.length + 1);
 
     data.instructors.push({
-        id,
-        avatar_url,
-        name,
+        id, 
+        avatar_url, 
+        name, 
+        email, 
         birth,
-        gender,
-        services,
-        created_at,
-    }); 
+        anoescolar,
+        ch,
+        created_at
+    });
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
-        if (err) return res.send("Write file error!");
+        if (err) return res.send("Erro ao salvar o arquivo.");
 
         return res.redirect("/instructors");
-    })
-}
+    });
+};
 
-// Mostrar
+// show
 exports.show = function(req, res) {
-
     const { id } = req.params;
 
     const foundInstructor = data.instructors.find(function(instructor) {
-        return instructor.id == id;
-    })
-
-    if (!foundInstructor) return res.send("Instrutor não encontrado!");
+        return id == instructor.id;
+    });
+    
+    if (!foundInstructor){
+        return res.send("Instructor não encontrado.");
+    }
 
     const instructor = {
         ...foundInstructor,
         age: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
+        // birthDay: birthDay(foundInstructor.birth).iso,
         created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at),
     }
 
-    return res.render("instructors/show", { instructor })
-}
+    return res.render("instructors/show", { instructor });
+};
 
-// Atualizar/Editar - Página de exibição da edição do fomrulário.
+// edit
 exports.edit = function(req, res) {
     const { id } = req.params;
 
     const foundInstructor = data.instructors.find(function(instructor) {
-        return instructor.id == id;
-    })
-
-    if (!foundInstructor) return res.send("Instrutor não encontrado!");
+        return id == instructor.id;
+    });
+    
+    if (!foundInstructor){
+        return res.send("Instructor não encontrado.");
+    }
 
     const instructor = {
         ...foundInstructor,
         birth: date(foundInstructor.birth),
     }
-        
-    return res.render('instructors/edit', { instructor });
+    
+    return res.render("instructors/edit", { instructor });
 }
 
-// Atualizar/Edit (Execução do comando PUT)
+// update - PUT
 exports.put = function(req, res) {
     const { id } = req.body;
     let index = 0;
 
     const foundInstructor = data.instructors.find(function(instructor, foundIndex) {
         if (id == instructor.id) {
-            index = foundIndex
+            index = foundIndex;
             return true;
         };
-    })
-
-    if (!foundInstructor) return res.send("Instrutor não encontrado!");
+    });
+    
+    if (!foundInstructor){
+        return res.send("Instructor não encontrado.");
+    }
 
     const instructor = {
         ...foundInstructor,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id),
     }
 
     data.instructors[index] = instructor;
 
-    fs.writeFile("data.json",JSON.stringify(data, null, 2), function(err) {
-        if (err) return res.send("Write error!")
-
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if (err) {
+            return res.send("Erro ao salvar o arquivo.");
+        }
         return res.redirect(`/instructors/${id}`);
     })
 
 };
 
-// Delete (Execução do comando DELETE)
+// delete - DELETE
 exports.delete = function(req, res) {
     const { id } = req.body;
 
@@ -126,8 +134,10 @@ exports.delete = function(req, res) {
     data.instructors = filteredInstructors;
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
-        if (err) return res.send("Erro ao atualizar!");
-
-        return res.redirect("/instructors");
+        if (err) {
+            return res.send("Erro ao salvar o arquivo.");
+        };
     });
-}
+
+    return res.redirect("/instructors");
+};
