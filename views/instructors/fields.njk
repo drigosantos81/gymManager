@@ -1,70 +1,93 @@
 <div class="item">
     <div>Avatar URL</div>
-    <div>
-        <input 
-            type="url"
-            name="avatar_url"
-            placeholder="http://..."
-            value="{{ instructor.avatar_url }}"
-        >
-    </div>
+        <div>
+            <input type="url" name="avatar_url" placeholder="http://..." value="{{ instructor.avatar_url }}">
+        </div>        
 </div>
 
 <div class="item">
-    <div>Instructor</div>
+    <div>Nome</div>
     <div>
-        <input 
-            type="text"
-            name="name"
-            placeholder="Nome do instrutor..."
-            value="{{ instructor.name }}"
-        >
-    </div>
+        <input type="text" name="name" placeholder="Nome do instructor..." value="{{ instructor.name }}">
+    </div>        
 </div>
 
 <div class="item">
-    <div>Data de Nascimento</div>
+    <div>Data de nascimento</div>
     <div>
-        <input
-            type="date"
-            name:="birth"
-            value="{{ instructor.birth }}"
-        >
-    </div>
+        <input type="date" name="birth" value="{{ instructor.birth }}">
+    </div>        
 </div>
 
 <div class="item">
     <div>Sexo</div>
     <div>
-        <span><input
-            type="radio"
-            name="gender"
-            value="M"
-            {% if instructor.gender == 'M' %}
-                checked
-            {% endif %}
-        >Masculino</span>
-        <span><input
-            type="radio"
-            name="gender"
-            value="F"
-            {% if instructor.gender == 'F' %}
-                checked
-            {% endif %}
-        >Feminino</span>
-    </div>
+        <span>
+            <input 
+                type="radio" 
+                name="gender" 
+                value="M" 
+                    {% if instructor.gender == "M" %}
+                        checked
+                    {% endif %}>Masculino
+        </span>
+        <span>
+            <input 
+                type="radio" 
+                name="gender" 
+                value="F"
+                    {% if instructor.gender == "F" %}
+                        checked
+                    {% endif %}>Feminino
+        </span>
+    </div>        
 </div>
 
 <div class="item">
-    <div>Área de atuação</div>
+    <div>Áreas de Acompanhamento</div>
     <div>
-        <input
-            type="text"
-            name="services"
-            placeholder="Separe os serviços prestados por vírgula"
-            value="{{ instructor.services }}"
-        >
-    </div>
+        <input type="text" name="services" placeholder="Informe a Carga Horária semanal..." value="{{ instructor.services }}">
+    </div>        
 </div>
 
 <button type="submit">Salvar</button>
+
+{# <div class="item">
+    <div>Ano Escolar</div>
+    <div>
+        <select name="anoescolar" id="">
+            <option value="5º Funamental">5º Funamental</option>
+            <option value="6º Funamental">6º Funamental</option>
+            <option value="7º Funamental">7º Funamental</option>
+            <option value="8º Funamental">8º Funamental</option>
+            <option value="9º Funamental">9º Funamental</option>
+            <option value="1º Ensino Médio">1º Ensino Médio</option>
+            <option value="2º Ensino Médio">2º Ensino Médio</option>
+            <option value="3º Ensino Médio">3º Ensino Médio</select>
+     </div>        
+</div> #}
+
+{# <option value="f5"
+            {% if instructor.anoescolar == "f5" %} seleted {% endif %}
+                >5º Funamental</option>
+            <option value="f6"
+            {% if instructor.anoescolar == "f6" %} seleted {% endif %}
+                >6º Funamental</option>
+            <option value="f7"
+            {% if instructor.anoescolar == "f7" %} seleted {% endif %}
+                >7º Funamental</option>
+            <option value="f8"
+            {% if instructor.anoescolar == "f8" %} seleted {% endif %}
+                >8º Funamental</option>
+            <option value="f8"
+            {% if instructor.anoescolar == "f9" %} seleted {% endif %}
+                >9º Funamental</option>
+            <option value="m1"
+            {% if instructor.anoescolar == "m1" %} seleted {% endif %}
+                >1º Ensino Médio</option>
+            <option value="m2"
+            {% if instructor.anoescolar == "m2" %} seleted {% endif %}
+                >2º Ensino Médio</option>
+            <option value="m3"
+            {% if instructor.anoescolar == "m3" %} seleted {% endif %}
+                >3º Ensino Médio</option> #}

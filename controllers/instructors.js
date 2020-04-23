@@ -23,7 +23,7 @@ exports.post = function(req, res) {
         }
     }
 
-    let { avatar_url, name, birth, email, anoescolar, ch } = req.body;
+    let { avatar_url, name, birth, gender, services } = req.body;
 
     birth = Date.parse(birth);
     const created_at = Date.now();
@@ -33,10 +33,9 @@ exports.post = function(req, res) {
         id, 
         avatar_url, 
         name, 
-        email, 
         birth,
-        anoescolar,
-        ch,
+        gender,
+        services,
         created_at
     });
 
@@ -62,7 +61,8 @@ exports.show = function(req, res) {
     const instructor = {
         ...foundInstructor,
         age: age(foundInstructor.birth),
-        // birthDay: birthDay(foundInstructor.birth).iso,
+        birthDay: birthDay(foundInstructor.birth).iso,
+        services: foundInstructor.services.split(","),
         created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at),
     }
 

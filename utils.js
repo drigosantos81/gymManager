@@ -26,6 +26,24 @@ module.exports = {
         const month = `0${date.getUTCMonth() + 1}`.slice(-2);
         const day = `0${date.getUTCDate()}`.slice(-2);
 
-        return `${day}-${month}-${year}`;
+        return (`${year}-${month}-${day}`);
+    },
+
+    birthDay: function(timestamp) {
+
+        const date = new Date(timestamp);
+
+        const year = date.getUTCFullYear();
+        const month = `0${date.getUTCMonth() + 1}`.slice(-2);
+        const day = `0${date.getUTCDate()}`.slice(-2);
+
+        // Padrão de data no HTML: yyyy-mm-dd
+        return {
+            day,
+            month,
+            year,
+            iso: `${day}/${month}`,
+            birthDate: `${month}/${year}`
+        };
     }
 }
