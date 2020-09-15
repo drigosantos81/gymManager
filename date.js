@@ -1,10 +1,3 @@
-
-// 11 - 10 = 1
-// 01 - 17 = -16
-// 12 - 12 = 0
-// 13 - 12 = 1
-
-// 1584708377956
 function age(timestamp) {
     const today = new Date();
     const birthDate = new Date(timestamp);
